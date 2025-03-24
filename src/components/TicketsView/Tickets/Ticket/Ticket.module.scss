@@ -1,0 +1,79 @@
+.wrapper {
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  
+    @media (min-width: 740px) {
+      padding: 20px;
+      width: 502px;
+      min-height: 184px;
+    }
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    margin-bottom: 10px;
+    padding: 0 20px;
+  
+    @media (min-width: 740px) {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+  
+  }
+  
+  .coast {
+    font-size: 24px;
+    line-height: 24px;
+  
+    color: #2196F3;
+  }
+  
+  .logo {
+    width: 110px;
+    height: 36px;
+  }
+  
+  .table {
+    width: 100%;
+    text-align: center;
+    border-spacing: 10px 0;
+  
+    @media (min-width: 740px) {
+      width: auto;
+      text-align: left;
+      border-spacing: 0;
+    }
+  
+    &:first-of-type {
+      margin-bottom: 10px;
+    }
+  
+    & th {
+      padding: 0;
+      color: #A0B0B9;
+      line-height: 18px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+  
+      @media (min-width: 740px) {
+        &:first-child {
+          width: 160px;
+        }
+  
+        &:nth-child(2) {
+          width: 160px;
+        }
+      }
+    }
+  
+    & td {
+      padding: 0;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }

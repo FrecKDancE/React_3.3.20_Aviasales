@@ -1,0 +1,16 @@
+.App {
+    font-family: "Open Sans", sans-serif;
+    color: #4A4A4A;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 12px;
+    text-transform: uppercase;
+  
+  
+    @media (min-width: 740px) {
+      width: 794px;
+      margin: 0 auto;
+      margin-top: 80px;
+    }
+  }

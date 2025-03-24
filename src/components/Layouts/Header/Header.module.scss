@@ -1,0 +1,7 @@
+.header {
+    margin-bottom: 15px;
+  
+    @media (min-width: 740px) {
+      margin-bottom: 30px;
+    }
+  }

@@ -1,0 +1,36 @@
+.form {
+    padding: 20px 0 10px;
+    box-sizing: border-box;
+  
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+  
+    @media (min-width: 740px) {
+      width: 232px;
+      min-height: 252px;
+    }
+  }
+  
+  .fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  
+    & > legend {
+      letter-spacing: 0.5px;
+      padding-right: 0;
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  
+    @media (max-width: 740px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }

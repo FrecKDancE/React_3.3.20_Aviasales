@@ -1,0 +1,31 @@
+.wrapper {
+    cursor: pointer;
+  
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    &:hover {
+      background-color: #F1FCFF;
+    }
+  
+    &:hover .marker {
+      box-shadow: 0 0 5px -2px #000000;
+    }
+  }
+  
+  .label {
+    cursor: pointer;
+  
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: none;
+  }
+  
+  .marker {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
