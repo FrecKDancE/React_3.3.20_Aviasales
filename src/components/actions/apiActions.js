@@ -9,10 +9,10 @@ export const getTicketsTC = () => (dispatch) => {
   return getTickets()
     .then((res) => {
       dispatch(toggleErrorAC(false))
-      dispatch(getTicketsAC(res.tickets))
+      dispatch(getTicketsAC(res))
     })
-    .catch((error) => {
-      dispatch(toggleErrorAC(error.message || 'Произошла ошибка'))
+    .catch(() => {
+      dispatch(toggleErrorAC(true))
     })
     .finally(() => {
       dispatch(toggleLoadingAC(false))
