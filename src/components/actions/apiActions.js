@@ -1,15 +1,14 @@
 import { getTickets } from '../api/api'
 
-const getTicketsAC = (payload) => ({ type: 'getTickets', payload })
-const toggleErrorAC = (payload) => ({ type: 'error', payload })
-const toggleLoadingAC = (payload) => ({ type: 'loading', payload })
+export const getTicketsAC = (payload) => ({ type: 'getTickets', payload })
+export const toggleErrorAC = (payload) => ({ type: 'error', payload })
+export const toggleLoadingAC = (payload) => ({ type: 'loading', payload })
 
 export const getTicketsTC = () => (dispatch) => {
   dispatch(toggleLoadingAC(true))
-  return getTickets()
-    .then((res) => {
+  return getTickets(dispatch)
+    .then(() => {
       dispatch(toggleErrorAC(false))
-      dispatch(getTicketsAC(res))
     })
     .catch(() => {
       dispatch(toggleErrorAC(true))

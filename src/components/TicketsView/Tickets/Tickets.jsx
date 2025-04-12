@@ -67,7 +67,7 @@ const Tickets = () => {
   const onClick = () => setCount((count) => count + 5)
 
   const ticketView =
-    ticketsList.length > 0 && !isLoading && !error ? (
+    ticketsList.length > 0 && !error ? (
       <>
         <ul className={styles.list}>
           {ticketsList.map((ticket, id) => (

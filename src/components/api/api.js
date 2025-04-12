@@ -44,21 +44,25 @@ export const setSearchId = async () => {
 //   }
 // }
 
-export const getTickets = async () => {
+import { getTicketsAC } from '../actions/apiActions'
+
+export const getTickets = async (dispatch) => {
   try {
     const searchId = await setSearchId()
-    return await fetchTicketsRecursively(searchId, [])
+    await fetchTicketsRecursively(searchId, [], dispatch)
   } catch (error) {
     console.error('Ошибка при загрузке билетов:', error)
     throw error
   }
 }
 
-const fetchTicketsRecursively = async (searchId, tickets, attempt = 1) => {
+const fetchTicketsRecursively = async (searchId, tickets, dispatch) => {
   try {
     const response = await fetchApi(`${_mainURL}tickets?searchId=${searchId}`)
     const updatedTickets = tickets.concat(response.tickets)
     const stop = response.stop
+
+    dispatch(getTicketsAC(updatedTickets))
     console.log(updatedTickets)
     if (stop) {
       sessionStorage.removeItem('searchId')
@@ -66,17 +70,18 @@ const fetchTicketsRecursively = async (searchId, tickets, attempt = 1) => {
       return updatedTickets
     } else {
       console.log(stop)
-      return fetchTicketsRecursively(searchId, updatedTickets)
+      return fetchTicketsRecursively(searchId, updatedTickets, dispatch)
     }
   } catch (error) {
     if (error.message === 'Ошибка сервера (500)') {
       console.log(`Повторная попытка`)
-      return fetchTicketsRecursively(searchId, tickets)
+      return fetchTicketsRecursively(searchId, tickets, dispatch)
     } else {
       console.log('Всё равно ошибка')
       throw error
     }
   }
 }
+
 
 
